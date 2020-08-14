@@ -1,7 +1,7 @@
 # _Pierre's Sweets and Treats_
 
 <h1 align="left">
-  <img width="350" height="180" src="">
+  <img width="270" height="180" src="https://bloximages.newyork1.vip.townnews.com/feastmagazine.com/content/tncms/assets/v3/editorial/a/d5/ad5cd0c2-cde9-11ea-b46a-ffca1fd6dcb7/5f1b4022c2898.image.jpg?resize=1200%2C901">
 </h1>
 
 
@@ -69,7 +69,7 @@ If you wish to edit the code base: Open the project in your code editor; with Ba
 * Then type ``` dotnet ef database update ```
 * You can confirm your the database has been created by going to the `Schemas` tab in your MySql Workbench and then right click and select `Refresh All` in the schema window.
 
-[![Image from Gyazo](https://i.gyazo.com/5edd4bf2780449d54844cc365939558a.gif)](https://gyazo.com/5edd4bf2780449d54844cc365939558a)
+[![Image from Gyazo](https://i.gyazo.com/227d39f3e0d0b3f0d75cf7fc570c2826.gif)](https://gyazo.com/227d39f3e0d0b3f0d75cf7fc570c2826)
 
 ### Running the program:
 1. In your command line terminal, type `cd Desktop` then navigate to project folder using `cd SweetTreats.Solution`
