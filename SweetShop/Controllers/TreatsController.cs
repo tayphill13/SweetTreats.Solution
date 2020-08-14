@@ -23,9 +23,9 @@ namespace SweetShop.Controllers
     }
     public async Task<ActionResult> Index()
     {
-      var userId = this._userManager.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+      var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
       var currentUser = await _userManager.FindByIdAsync(userId);
-      var userTreats = _db.Treats.Where(entry = entry.User.Id == currentUser.Id).ToList();
+      var userTreats = _db.Treats.Where(entry => entry.User.Id == currentUser.Id).ToList();
       return View(userTreats);
     }
 
@@ -48,7 +48,7 @@ namespace SweetShop.Controllers
       var thisTreat = _db.Treats
           .Include(treat => treat.Flavors)
           .ThenInclude(join => join.Flavor)
-          .FirstOrDefautl(treat => treat.TreatId ==id);
+          .FirstOrDefault(treat => treat.TreatId ==id);
       return View(thisTreat);
     }
 
