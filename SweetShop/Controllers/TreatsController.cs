@@ -28,15 +28,7 @@ namespace SweetShop.Controllers
       var userTreats = _db.Treats.Where(entry = entry.User.Id == currentUser.Id).ToList();
       return View(userTreats);
     }
-    public ActionResult Details(int id)
-    {
-      var thisTreat = _db.Treats
-          .Include(treat => treat.Flavors)
-          .ThenInclude(join => join.Flavor)
-          .FirstOrDefautl(treat => treat.TreatId ==id);
-      return View(thisTreat);
-    }
-
+    
     public ActionResult Create()
     {
       return View();
@@ -51,6 +43,15 @@ namespace SweetShop.Controllers
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
+    public ActionResult Details(int id)
+    {
+      var thisTreat = _db.Treats
+          .Include(treat => treat.Flavors)
+          .ThenInclude(join => join.Flavor)
+          .FirstOrDefautl(treat => treat.TreatId ==id);
+      return View(thisTreat);
+    }
+
 
     public ActionResult Edit(int id)
     {
