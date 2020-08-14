@@ -1,0 +1,32 @@
+@{
+  Layout = "_Layout";
+}
+
+@model SweetShop.Models.Flavor
+
+<h1>Flavor details</h1>
+<hr>
+<h2>@Html.DisplayFor(model => model.Profile)</h2>
+
+@if(@Model.Treats.Count == 0)
+{
+  <p>No Treats have been associated with this flavor!</p>
+}
+else
+{
+  <h3>Treats with this flavor:</h3>
+  <ul>
+    @foreach (var join in Model.Treats)
+    {
+      <li>@join.Treat.Name</li>
+      @using (Html.BeginForm("RemoveTreat", "Flavors"))
+      {
+        @Html.Hidden("joinId", @join.TreatFlavorId)
+        <input type="submit" value="Remove" />
+      }
+    }
+  </ul>
+}
+<p>@Html.ActionLink("Edit flavor", "Edit", new { id = Model.FlavorId})</p>
+<p>@Html.ActionLink("Add a flavor", "AddFlavor", new { id = Model.FlavorId})</p>
+<p>@Html.ActionLink("Delete flavor", "Delete", new { id = Model.FlavorId})</p>

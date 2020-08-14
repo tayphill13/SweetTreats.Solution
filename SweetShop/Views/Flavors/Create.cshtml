@@ -1,0 +1,21 @@
+@{
+  Layout = "_Layout";
+}
+
+@model SweetShop.Models.Flavor
+
+<h1>Add a new flavor</h1>
+
+@using (Html.BeginForm())
+{
+  <table>
+    <tr>
+      <td>@Html.LabelFor(model => model.Profile)</td>
+      <td>@Html.TextBoxFor(model => model.Profile)</td>
+    </tr>
+  </table>
+  <br>
+  <input type="submit" value="Add" class="btn btn-primary"/>
+}
+
+<p>@Html.ActionLink("Show all flavors", "Index")</p>
