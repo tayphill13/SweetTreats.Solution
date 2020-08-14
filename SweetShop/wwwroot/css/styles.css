@@ -13,7 +13,7 @@ body  {
 
 .nav {
   background-color: rgba(245, 245, 245, 0.75);
-  font-family: 'Dancing Script', cursive;
+  font-family: 'Fantasy';
 }
 h1  {
   
@@ -30,9 +30,9 @@ h1  {
 div#footer {
   position:fixed;
   bottom:0px;
-  left:0px;
-  width:100%;
-  background:rgba(245, 245, 245, 0.55);
+  right:65px;
+  width:50%;
+  /* background:rgba(245, 245, 245, 0.20); */
   padding:2px;
   text-align: center;
 }
