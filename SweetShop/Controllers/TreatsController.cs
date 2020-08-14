@@ -12,7 +12,7 @@ using System.Security.Claims;
 namespace SweetShop.Controllers
 {
   [Authorize]
-  public class TreatsController : Controllers
+  public class TreatsController : Controller
   {
     private readonly SweetShopContext _db;
     private readonly UserManager<ApplicationUser> _userManager;
@@ -28,7 +28,7 @@ namespace SweetShop.Controllers
       var userTreats = _db.Treats.Where(entry = entry.User.Id == currentUser.Id).ToList();
       return View(userTreats);
     }
-    
+
     public ActionResult Create()
     {
       return View();
