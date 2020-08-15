@@ -22,7 +22,7 @@ _This is an MVC application built with C# is an independent project to demonstra
 | Spec |
 | :--- |
 | User will be first directed to the homepage where they can select to see a list of Treats or a list of Flavors offered |
-| User has the option to go to login page from the home page |
+| User has the option to go to register/login page from the home page |
 | User is able to return to the homepage from multiple pages through links or use of navbar  |
 
 | All Users Can: |
