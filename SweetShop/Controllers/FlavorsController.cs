@@ -95,7 +95,7 @@ namespace SweetShop.Controllers
     [HttpPost]
     public ActionResult AddTreat(Flavor flavor, int TreatId)
     {
-      if (TreatId != 0 && _db.TreatFlavor.Any(x => x.FlavorId == flavor.FlavorId && x.TreatId == TreatId))
+      if (TreatId != 0 && !_db.TreatFlavor.Any(x => x.TreatId == TreatId && x.FlavorId == flavor.FlavorId))
       {
         _db.TreatFlavor.Add(new TreatFlavor() { TreatId = TreatId, FlavorId = flavor.FlavorId });
       }
