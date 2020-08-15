@@ -5,7 +5,7 @@
 </h1>
 
 
-#### _An MVC Application for a Sweet Shop that displays info about the treats and flavor profiles offered, 8.14.20_
+#### _An MVC Application for a Sweet Shop that displays info about the treats and flavor profiles offered, 8.15.20_
 
 #### By _**Taylor Phillips**_
 
@@ -13,7 +13,7 @@
 
 ## Description
 
-__
+_This is an MVC application built with C# is an independent project to demonstrate the ability to authorize users for particular functions and then to authenticate users with saved email and password.  The User is able to view the flavor profiles and treats that have been created by logged in users.  If a user is not logged in, they will be prompted to log in or register as a new user before adding or altering items.  Authenticated users can create, edit and delete the flavors and treats._
 
 <br>
 
@@ -21,11 +21,20 @@ __
 
 | Spec |
 | :--- |
-| User will be first directed to the homepage where they can select to see a list of Treat or see a list of Flavors offered |
-| On the Treats page, User can select a specific treat to see the name and cost |
-| On the Flavors page, User can select a specific Flavor to view the details and what treats match that flavor |
-| User is able to return to the homepage from multiple pages  |
-| New Flavors can be added, as well as new Treats.  They can also be deleted  |
+| User will be first directed to the homepage where they can select to see a list of Treats or a list of Flavors offered |
+| User has the option to go to login page from the home page |
+| User is able to return to the homepage from multiple pages through links or use of navbar  |
+
+| All Users Can: |
+| :------------  |
+| Create a login profile with an email and a password |
+| See Treats page, User can select a specific treat to see the name and cost |
+| See the Flavors page, User can select a specific Flavor to view the details and what treats match that flavor |
+
+| Only Logged in Users Can: |
+| :-----------------------  |
+| Add, Edit, or Delete New Flavors and Treats |
+| Connect Flavor Profiles to Treats, or connect Treats to Flavors |
 
 
 <br>
@@ -97,6 +106,9 @@ _**Written in:** [Visual Studio Code](https://code.visualstudio.com/)_
 _**Database Mgmt:** [MySql Workbench](https://www.mysql.com/products/workbench/)_
 
 _Using C# and .Net Core_
+_Entity Framework_
+_Identity for Authorization and Authentication_
+_Github for version control_
 
 _This was completed using MacOS_
 
