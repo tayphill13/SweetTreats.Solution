@@ -5,7 +5,8 @@
 @using SweetShop.ViewModels
 @model RegisterViewModel
 
-<h1>Register a new user</h1>
+<div class="textBox">
+<h2>Register a new user</h2>
 <hr/>
 @using (Html.BeginForm("Register", "Account", FormMethod.Post))
 {
@@ -20,3 +21,4 @@
 
   <input type="submit" value="Register"/>
 }
+</div>

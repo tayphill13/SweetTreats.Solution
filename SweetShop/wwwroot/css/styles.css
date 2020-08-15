@@ -19,10 +19,12 @@ h1  {
   font-family: 'Baloo Tamma 2', cursive;
   text-shadow: 1px 1px 0px #2e0dee;
 }
-
-/* p {
-  font-family: 'Chilanka', cursive;
-} */
+h2  {
+  font-family: 'Baloo Tamma 2', cursive;
+}
+li  {
+  font-family: 'Fira Sans', sans-serif;
+}
 
 /* h6  {
   font-family: 'Dancing Script', cursive;
@@ -30,13 +32,13 @@ h1  {
 div#footer {
   position:fixed;
   bottom:0px;
-  right:65px;
-  width:50%;
-  /* background:rgba(245, 245, 245, 0.20); */
+  right:0px;
+  width:100%;
+  background:rgba(245, 245, 245, 0.20);
   padding:2px;
   text-align: center;
   font-family: 'Lobster', cursive;
 }
-.homePage {
+.textBox {
   text-align: center;
 }
