@@ -11,7 +11,7 @@ using System.Security.Claims;
 
 namespace SweetShop.Controllers
 {
-  [Authorize]
+  
   public class FlavorsController : Controller
   {
     private readonly SweetShopContext _db;
@@ -22,20 +22,18 @@ namespace SweetShop.Controllers
       _userManager = userManager;
       _db = db;
     }
-
-    public async Task<ActionResult> Index()
+    public ActionResult Index()
     {
-      var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-      var currentUser = await _userManager.FindByIdAsync(userId);
-      var userFlavors = _db.Flavors.Where(entry => entry.User.Id == currentUser.Id).ToList();
-      return View(userFlavors);
+      List<Flavor> model = _db.Flavors.ToList();
+      return View(model);
     }
+    [Authorize]
     public ActionResult Create()
     {
       return View();
     }
-
     [HttpPost]
+    [Authorize]
     public async Task<ActionResult> Create(Flavor flavor, int TreatId)
     {
       var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
@@ -57,6 +55,7 @@ namespace SweetShop.Controllers
         .FirstOrDefault(flavor => flavor.FlavorId == id);
       return View(thisFlavor);
     }
+    [Authorize]
     public ActionResult Edit(int id)
     {
       var thisFlavor = _db.Flavors.FirstOrDefault(flavor => flavor.FlavorId == id);
@@ -64,13 +63,14 @@ namespace SweetShop.Controllers
     }
 
     [HttpPost]
+    [Authorize]
     public ActionResult Edit(Flavor flavor)
     {
       _db.Entry(flavor).State = EntityState.Modified;
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
-
+    [Authorize]
     public ActionResult Delete(int id)
     {
       var thisFlavor = _db.Flavors.FirstOrDefault(flavor => flavor.FlavorId == id);
@@ -78,6 +78,7 @@ namespace SweetShop.Controllers
     }
 
     [HttpPost, ActionName("Delete")]
+    [Authorize]
     public ActionResult DeleteConfirmed(int id)
     {
       var thisFlavor = _db.Flavors.FirstOrDefault(flavor => flavor.FlavorId == id);
@@ -85,6 +86,7 @@ namespace SweetShop.Controllers
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
+    [Authorize]
     public ActionResult AddTreat(int id)
     {
       var thisFlavor = _db.Flavors.FirstOrDefault(flavors => flavors.FlavorId == id);
@@ -93,6 +95,7 @@ namespace SweetShop.Controllers
     }
 
     [HttpPost]
+    [Authorize]
     public ActionResult AddTreat(Flavor flavor, int TreatId)
     {
       if (TreatId != 0 && !_db.TreatFlavor.Any(x => x.TreatId == TreatId && x.FlavorId == flavor.FlavorId))
@@ -103,6 +106,7 @@ namespace SweetShop.Controllers
       return RedirectToAction("Details", new { id = flavor.FlavorId });
     }
     [HttpPost]
+    [Authorize]
     public ActionResult RemoveTreat(int joinId)
     {
       var joinEntry = _db.TreatFlavor.FirstOrDefault(entry => entry.TreatFlavorId == joinId);

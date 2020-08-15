@@ -11,7 +11,7 @@ using System.Security.Claims;
 
 namespace SweetShop.Controllers
 {
-  [Authorize]
+  
   public class TreatsController : Controller
   {
     private readonly SweetShopContext _db;
@@ -29,11 +29,13 @@ namespace SweetShop.Controllers
       return View(userTreats);
     }
 
+    [Authorize]
     public ActionResult Create()
     {
       return View();
     }
     [HttpPost]
+    [Authorize]
     public async Task<ActionResult> Create(Treat treat)
     {
       var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
@@ -52,26 +54,28 @@ namespace SweetShop.Controllers
       return View(thisTreat);
     }
 
-
+    [Authorize]
     public ActionResult Edit(int id)
     {
       var thisTreat = _db.Treats.FirstOrDefault(treats => treats.TreatId == id);
       return View(thisTreat);
     }
     [HttpPost]
+    [Authorize]
     public ActionResult Edit(Treat treat)
     {
       _db.Entry(treat).State = EntityState.Modified;
       _db.SaveChanges();
       return RedirectToAction("Details", new { id = treat.TreatId });
     }
-
+    [Authorize]
     public ActionResult Delete(int id)
     {
       var thisTreat = _db.Treats.FirstOrDefault(treats => treats.TreatId == id);
       return View(thisTreat);
     }
     [HttpPost, ActionName("Delete")]
+    [Authorize]
     public ActionResult DeleteConfirmed(int id)
     {
       var thisTreat = _db.Treats.FirstOrDefault(treats => treats.TreatId == id);
@@ -79,15 +83,15 @@ namespace SweetShop.Controllers
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
-
+    [Authorize]
     public ActionResult AddFlavor(int id)
     {
       var thisTreat = _db.Treats.FirstOrDefault(treats => treats.TreatId == id);
       ViewBag.FlavorId = new SelectList(_db.Flavors, "FlavorId", "Profile");
       return View(thisTreat);
     }
-
     [HttpPost]
+    [Authorize]
     public ActionResult AddFlavor(Treat treat, int FlavorId)
     {
       if (FlavorId != 0 && !_db.TreatFlavor.Any(x => x.FlavorId == FlavorId && x.TreatId == treat.TreatId))
@@ -98,6 +102,7 @@ namespace SweetShop.Controllers
       return RedirectToAction("Details", new { id = treat.TreatId });
     }
     [HttpPost]
+    [Authorize]
     public ActionResult DeleteFlavor(int joinId)
     {
       var joinEntry = _db.TreatFlavor.FirstOrDefault(entry => entry.TreatFlavorId == joinId);
